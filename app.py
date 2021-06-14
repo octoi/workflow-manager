@@ -1,9 +1,17 @@
 import tkinter as tk
 from tkinter import filedialog, Text
+import platform
 import os
 
 root = tk.Tk()
 apps = []
+filetype = ()
+
+if platform.system == 'Windows':
+    filetype = ("executables", "*.exe")
+else:
+    filetype = ("executables", "*.sh")
+    
 
 if os.path.isfile('save.txt'):
     with open('save.txt', 'r') as f:
