@@ -17,7 +17,6 @@ def add_app():
 
     filename = filedialog.askopenfilename(initialdir='/', title='Select file', filetypes=(("executables", "*.exe"), ("all files", "*.*")))
     apps.append(filename)
-    print(filename)
 
     for app in apps:
         label = tk.Label(frame, text=app)
@@ -39,8 +38,12 @@ openFile.pack()
 runApps = tk.Button(root, text='Run Apps', padx=10, pady=5, fg='white', bg='#263D42', command=run_apps)
 runApps.pack()
 
+for app in apps:
+    label = tk.Label(frame, text=app)
+    label.pack()
+
 root.mainloop()
 
 with open('save.txt', 'w') as f:
     for app in apps:
-        f.write(app + ',')
+        f.write(app + ',\n')
