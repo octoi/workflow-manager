@@ -6,6 +6,9 @@ root = tk.Tk()
 apps = []
 
 def add_app():
+    for widget in frame.winfo_children():
+        widget.destroy()
+
     filename = filedialog.askopenfilename(initialdir='/', title='Select file', filetypes=(("executables", "*.exe"), ("all files", "*.*")))
     apps.append(filename)
     print(filename)
