@@ -10,6 +10,10 @@ def add_app():
     apps.append(filename)
     print(filename)
 
+    for app in apps:
+        label = tk.Label(frame, text=app)
+        label.pack()
+
 
 canvas = tk.Canvas(root, height=700, width=700, bg='#263D42')
 canvas.pack()
